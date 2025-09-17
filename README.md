@@ -43,7 +43,7 @@ By combining these agents, IITI-GPT delivers high-quality answers tailored to ea
 ## 3. System Design Document
 
 Detailed design (architecture, data design, components, tech choices) is available here:  
-`<LINK_TO_DESIGN_DOCUMENT>`
+https://drive.google.com/file/d/15QHFu5hrOdfqDvUQYQy8K99zu2fMfeUx/view?usp=sharing
 
 **Quick summary**
 - **Architecture:** React (UI) ↔ FastAPI (Backend) ↔ ML Inference Service. Postgres for persistence, Redis for cache/pubsub, S3/MinIO for assets.
