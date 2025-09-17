@@ -1,25 +1,47 @@
 # IITI_GPT 🚀
 
 **Author:** Mohit Garhewal  
-**University:** Indian Institute of Technology, Indore
+**University:** Indian Institute of Technology, Indore  
 **Department:** Metallurgical Engineering and Materials Science
 
 ---
 
 ## 1. Introduction
-A concise full‑stack + ML prototype that provides a conversational AI with chat logging and optional RAG support. Built for fast experimentation and easy deployment.
+
+IITI-GPT is a full-stack + ML prototype designed to help students at IITI get accurate answers to their questions about the institute. It provides a conversational AI interface with chat logging and optional Retrieval-Augmented Generation (RAG) support, built for fast experimentation and easy deployment.
 
 ---
 
-## 2. Source code
-- **Main repo:** `https://github.com/mohitgarhewal/IITI_Gpt.git`  
-- **Frontend:** `https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_frontend`  
-- **Backend:** `https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_backend`
+## Project Aim
 
+The main goal of IITI-GPT is to resolve students’ queries related to IITI—whether about academics, campus facilities, events, or procedures—by using intelligent AI agents. When a student asks a question, the system:
+
+1. **Reasons**: The AI agent analyzes the question to understand its intent and context.
+2. **Plans**: It determines the best approach to find the answer, including which sources to consult and how to structure the response.
+3. **Executes**: The agent retrieves relevant information from trusted documents and databases, filters out noise, and synthesizes a clear, accurate answer.
+
+This process ensures that students receive reliable, context-aware responses quickly and conveniently on their mobile devices.
+
+### How AI Agents Work
+
+- **Reasoning Agent**: Interprets the user’s question, identifies key topics, and decides what information is needed.
+- **Planning Agent**: Chooses the most relevant sources (such as official IITI documents or FAQs), organizes the search, and outlines the answer.
+- **Execution Agent**: Fetches data, applies filters to ensure accuracy and relevance, and generates a concise, user-friendly response.
+
+By combining these agents, IITI-GPT delivers high-quality answers tailored to each student’s needs, making campus information accessible and actionable.
 
 ---
 
-## 3. System design document
+## 2. Source Code
+
+- **Main repo:** [https://github.com/mohitgarhewal/IITI_Gpt.git](https://github.com/mohitgarhewal/IITI_Gpt.git)  
+- **Frontend:** [https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_frontend](https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_frontend)  
+- **Backend:** [https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_backend](https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_backend)
+
+---
+
+## 3. System Design Document
+
 Detailed design (architecture, data design, components, tech choices) is available here:  
 `<LINK_TO_DESIGN_DOCUMENT>`
 
@@ -34,25 +56,35 @@ Detailed design (architecture, data design, components, tech choices) is availab
   - **Postgres + JSONB** — reliable + flexible fields
   - **Redis** — low-latency cache / pubsub
 
+---
+
+## 4. How the System Works
+
+- **Student asks a question** via the chat interface (web or mobile).
+- **AI agents reason, plan, and execute**:
+  - The reasoning agent interprets the query and identifies what information is needed.
+  - The planning agent selects trusted sources (IITI docs, FAQs, official announcements) and decides how to answer.
+  - The execution agent retrieves, filters, and synthesizes the best possible answer.
+- **Response delivered instantly** to the student, with chat history logged for future reference.
+- **Mobile-first design** ensures answers are accessible anywhere, anytime.
 
 ---
 
-## 4. Interaction logs  🗂️
+## 5. Interaction Logs 🗂️
 
-- **Chat history exports:** (https://chatgpt.com/share/68ca6f00-e5c8-8004-a15f-2938e0b6f4ba)
+- **Chat history exports:** [https://chatgpt.com/share/68ca6f00-e5c8-8004-a15f-2938e0b6f4ba](https://chatgpt.com/share/68ca6f00-e5c8-8004-a15f-2938e0b6f4ba)
 
 ---
 
-## 5. Demo ▶️
+## 6. Demo ▶️
+
 - **Demo video:** `demos/iiti_gpt_demo.mp4` (or external link)  
 - **Screenshots:** `docs/screenshots/chat-ui-1.png`, `docs/screenshots/admin-1.png`
 
-
 ---
 
-## Contact
-- **Email** mems230005028@iiti.ac.in
+## 7. Contact
+
+- **Email:** mems230005028@iiti.ac.in
 
 ---
-
-
