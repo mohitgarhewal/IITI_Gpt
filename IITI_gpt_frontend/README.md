@@ -1,110 +1,90 @@
-# IITI-GPT AI Agent Prototype
+# IITI_GPT 🚀
 
-A modern, interactive AI agent chat interface built for university assignment submission. This prototype demonstrates intelligent task automation with user authentication and chat history management.
+**Author:** Mohit Garhewal  
+**University:** Indian Institute of Technology, Indore  
+**Department:** Metallurgical Engineering and Materials Science
 
-## Student Information
-- **Name**: [Your Name]
-- **University**: Indian Institute of Technology Indore (IITI)
-- **Department**: [Your Department]
-- **Assignment**: AI Agent Prototype Development
+---
 
-## Features
+## 1. Introduction
 
-### Core Features (Mandatory)
-- **AI Agent Interface**: Interactive chat UI for task automation
-- **Intelligent Reasoning**: AI-powered task planning and execution
-- **Modern UI/UX**: Responsive design inspired by ChatGPT and v0.dev
-- **Real-time Chat**: Typewriter effects and streaming responses
+IITI-GPT is a full-stack + ML prototype designed to help students at IITI get accurate answers to their questions about the institute. It provides a conversational AI interface with chat logging and optional Retrieval-Augmented Generation (RAG) support, built for fast experimentation and easy deployment.
 
-### Bonus Features Implemented
-- **User Authentication**: Registration and login system
-- **Chat History**: Persistent conversation storage in MongoDB
-- **Multi-session Support**: Users can manage multiple chat conversations
-- **Responsive Design**: Mobile-first approach with touch optimizations
-- **Dark/Light Mode**: Theme switching capability
+---
 
-## Technology Stack
+## Project Aim
 
-### Frontend
-- **Framework**: Next.js 14 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS v4 with shadcn/ui components
-- **State Management**: React hooks with local storage
-- **Animations**: CSS animations and Framer Motion principles
+The main goal of IITI-GPT is to resolve students’ queries related to IITI—whether about academics, campus facilities, events, or procedures—by using intelligent AI agents. When a student asks a question, the system:
 
-### Backend
-- **Runtime**: Node.js with Express.js
-- **Database**: MongoDB with Mongoose ODM
-- **Authentication**: JWT tokens with bcrypt password hashing
-- **API Design**: RESTful endpoints for auth and chat management
+1. **Reasons**: The AI agent analyzes the question to understand its intent and context.
+2. **Plans**: It determines the best approach to find the answer, including which sources to consult and how to structure the response.
+3. **Executes**: The agent retrieves relevant information from trusted documents and databases, filters out noise, and synthesizes a clear, accurate answer.
 
-### Key Design Decisions
-1. **Next.js App Router**: Chosen for modern React patterns and server-side capabilities
-2. **MongoDB**: Selected for flexible document storage suitable for chat messages
-3. **JWT Authentication**: Stateless authentication for scalability
-4. **Minimal Backend Structure**: Simple folder organization as requested
-5. **TypeScript**: Type safety for better development experience
+This process ensures that students receive reliable, context-aware responses quickly and conveniently on their mobile devices.
 
-## Installation & Setup
+### How AI Agents Work
 
-### Backend Setup
-\`\`\`bash
-cd backend
-npm install
-npm run dev
-\`\`\`
+- **Reasoning Agent**: Interprets the user’s question, identifies key topics, and decides what information is needed.
+- **Planning Agent**: Chooses the most relevant sources (such as official IITI documents or FAQs), organizes the search, and outlines the answer.
+- **Execution Agent**: Fetches data, applies filters to ensure accuracy and relevance, and generates a concise, user-friendly response.
 
-### Frontend Setup
-\`\`\`bash
-npm install
-npm run dev
-\`\`\`
+By combining these agents, IITI-GPT delivers high-quality answers tailored to each student’s needs, making campus information accessible and actionable.
 
-### Environment Variables
-Create `.env` file in backend directory:
-\`\`\`
-MONGODB_URI=mongodb://localhost:27017/iiti-gpt
-JWT_SECRET=your-super-secret-jwt-key
-PORT=5000
-\`\`\`
+---
 
-## System Architecture
+## 2. Source Code
 
-### Component Breakdown
-- **Authentication System**: Login/register modals with JWT token management
-- **Chat Interface**: Main conversation UI with typewriter effects
-- **Chat Sidebar**: History management with CRUD operations
-- **Theme System**: Dark/light mode toggle with persistent preferences
-- **API Layer**: Service classes for backend communication
+- **Main repo:** [https://github.com/mohitgarhewal/IITI_Gpt.git](https://github.com/mohitgarhewal/IITI_Gpt.git)  
+- **Frontend:** [https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_frontend](https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_frontend)  
+- **Backend:** [https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_backend](https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_backend)
 
-### Data Design
-- **Users Collection**: Email, password (hashed), name, timestamps
-- **Chats Collection**: User reference, title, messages array, timestamps
-- **Message Schema**: Role (user/assistant), content, timestamp
+---
 
-## Social Impact & Originality
+## 3. System Design Document
 
-This AI agent prototype addresses the growing need for intelligent task automation in academic and professional environments. By providing an intuitive chat interface, users can delegate complex multi-step tasks to AI, improving productivity and reducing manual effort. The system's ability to maintain conversation history enables continuous learning and task refinement.
+Detailed design (architecture, data design, components, tech choices) is available here:  
+`<LINK_TO_DESIGN_DOCUMENT>`
 
-## Demo Usage
+**Quick summary**
+- **Architecture:** React (UI) ↔ FastAPI (Backend) ↔ ML Inference Service. Postgres for persistence, Redis for cache/pubsub, S3/MinIO for assets.
+- **Data model (core):** `users`, `chats`, `messages`, `interaction_logs` (JSONB for flexible metadata).
+- **Components:** UI · Auth · API · Inference · Storage · DB · Cache.
+- **Tech choices (short):**
+  - **React + TypeScript** — rapid UI + type safety
+  - **FastAPI (Python)** — async, ML-friendly
+  - **PyTorch / Transformers** — standard for conversational models
+  - **Postgres + JSONB** — reliable + flexible fields
+  - **Redis** — low-latency cache / pubsub
 
-1. **Registration**: Create account with email and password
-2. **Task Description**: Describe any manual task you want automated
-3. **AI Processing**: Watch as the agent analyzes and plans execution
-4. **History Management**: Access previous conversations from sidebar
-5. **Multi-device Support**: Seamless experience across desktop and mobile
+---
 
-## Evaluation Criteria Addressed
+## 4. How the System Works
 
-- **System Design**: Clean architecture with separation of concerns
-- **Coding**: TypeScript, modern React patterns, and best practices
-- **Originality**: Unique combination of features with impressive UI/UX
-- **UI/UX Design**: Modern, responsive interface with smooth animations
+- **Student asks a question** via the chat interface (web or mobile).
+- **AI agents reason, plan, and execute**:
+  - The reasoning agent interprets the query and identifies what information is needed.
+  - The planning agent selects trusted sources (IITI docs, FAQs, official announcements) and decides how to answer.
+  - The execution agent retrieves, filters, and synthesizes the best possible answer.
+- **Response delivered instantly** to the student, with chat history logged for future reference.
+- **Mobile-first design** ensures answers are accessible anywhere, anytime.
 
-## Future Enhancements
+---
 
-- Multi-agent collaboration system
-- External tool integrations (RAG, MCP)
-- Batch execution and scheduling
-- Advanced monitoring dashboard
-- Voice interaction capabilities
+## 5. Interaction Logs 🗂️
+
+- **Chat history exports:** [https://chatgpt.com/share/68ca6f00-e5c8-8004-a15f-2938e0b6f4ba](https://chatgpt.com/share/68ca6f00-e5c8-8004-a15f-2938e0b6f4ba)
+
+---
+
+## 6. Demo ▶️
+
+- **Demo video:** `demos/iiti_gpt_demo.mp4` (or external link)  
+- **Screenshots:** `docs/screenshots/chat-ui-1.png`, `docs/screenshots/admin-1.png`
+
+---
+
+## 7. Contact
+
+- **Email:** mems230005028@iiti.ac.in
+
+---
