@@ -78,8 +78,7 @@ Detailed design (architecture, data design, components, tech choices) is availab
 
 ## 6. Demo ▶️
 
-- **Demo video:** `demos/iiti_gpt_demo.mp4` (or external link)  
-- **Screenshots:** `docs/screenshots/chat-ui-1.png`, `docs/screenshots/admin-1.png`
+- **Demo video & images link :** https://drive.google.com/drive/folders/1GCt1-ZO-TeFmp87LauH0ZlwoutAXh-9j?usp=sharing
 
 ---
 
