@@ -38,10 +38,8 @@ Detailed design (architecture, data design, components, tech choices) is availab
 ---
 
 ## 4. Interaction logs  🗂️
-**(Reserved — to be provided by the author)**
 
-- **Prompts & templates:** (space to paste prompt templates and versions)
-- **Chat history exports:** (space to paste or link JSON/CSV exports)
+- **Chat history exports:** (https://chatgpt.com/share/68ca6f00-e5c8-8004-a15f-2938e0b6f4ba)
 
 ---
 
