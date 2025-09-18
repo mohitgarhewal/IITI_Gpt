@@ -1,4 +1,4 @@
-# IITI_GPT 🚀
+# IITI_GPT Frontend 🚀
 
 **Author:** Mohit Garhewal  
 **University:** Indian Institute of Technology, Indore  
@@ -8,82 +8,120 @@
 
 ## 1. Introduction
 
-IITI-GPT is a full-stack + ML prototype designed to help students at IITI get accurate answers to their questions about the institute. It provides a conversational AI interface with chat logging and optional Retrieval-Augmented Generation (RAG) support, built for fast experimentation and easy deployment.
+This is the frontend for IITI-GPT, a conversational AI platform designed to help students at IITI get accurate answers to their questions about the institute. The frontend provides a modern, mobile-friendly chat interface, user authentication, chat history management, and seamless interaction with backend AI agents.
 
 ---
 
-## Project Aim
+## 2. Project Structure & Components
 
-The main goal of IITI-GPT is to resolve students’ queries related to IITI—whether about academics, campus facilities, events, or procedures—by using intelligent AI agents. When a student asks a question, the system:
+```
+IITI_gpt_frontend/
+├── app/                # Next.js App Router pages and layouts
+│   ├── page.tsx        # Main chat interface UI
+│   ├── layout.tsx      # Global layout, navigation, and theme context
+│   └── ...             # Other route files (login, register, etc.)
+├── components/         # Reusable React components
+│   ├── ChatBox.tsx     # Renders chat messages and handles user input
+│   ├── Sidebar.tsx     # Displays chat history and session management
+│   ├── AuthModal.tsx   # Login and registration modal dialogs
+│   ├── ThemeToggle.tsx # Dark/light mode switch
+│   └── ...             # Other UI elements
+├── lib/                # Utility functions and API services
+│   ├── api.ts          # Functions for backend communication (chat, auth)
+│   └── ...             # Helpers for authentication, storage, etc.
+├── styles/             # Tailwind CSS and custom styles
+│   └── globals.css     # Global style definitions
+├── public/             # Static assets (icons, images)
+├── README.md           # Project documentation (this file)
+└── package.json        # Frontend dependencies and scripts
+```
 
-1. **Reasons**: The AI agent analyzes the question to understand its intent and context.
-2. **Plans**: It determines the best approach to find the answer, including which sources to consult and how to structure the response.
-3. **Executes**: The agent retrieves relevant information from trusted documents and databases, filters out noise, and synthesizes a clear, accurate answer.
+### Component Details
 
-This process ensures that students receive reliable, context-aware responses quickly and conveniently on their mobile devices.
+- **app/page.tsx**  
+  The main chat interface. Displays the conversation between the user and the AI agent, handles message input, and shows streaming responses.
 
-### How AI Agents Work
+- **app/layout.tsx**  
+  Sets up the global layout, navigation bar, and theme context for the entire app.
 
-- **Reasoning Agent**: Interprets the user’s question, identifies key topics, and decides what information is needed.
-- **Planning Agent**: Chooses the most relevant sources (such as official IITI documents or FAQs), organizes the search, and outlines the answer.
-- **Execution Agent**: Fetches data, applies filters to ensure accuracy and relevance, and generates a concise, user-friendly response.
+- **components/ChatBox.tsx**  
+  Renders chat messages, manages user input, and triggers message sending to the backend.
 
-By combining these agents, IITI-GPT delivers high-quality answers tailored to each student’s needs, making campus information accessible and actionable.
+- **components/Sidebar.tsx**  
+  Shows chat history, allows users to switch between sessions, and manage previous conversations.
 
----
+- **components/AuthModal.tsx**  
+  Provides modal dialogs for user login and registration, handling authentication flows.
 
-## 2. Source Code
+- **components/ThemeToggle.tsx**  
+  Lets users switch between dark and light modes for a personalized experience.
 
-- **Main repo:** [https://github.com/mohitgarhewal/IITI_Gpt.git](https://github.com/mohitgarhewal/IITI_Gpt.git)  
-- **Frontend:** [https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_frontend](https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_frontend)  
-- **Backend:** [https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_backend](https://github.com/mohitgarhewal/IITI_Gpt/tree/main/IITI_gpt_backend)
+- **lib/api.ts**  
+  Contains functions to communicate with the backend API for chat messages, authentication, and session management.
 
----
+- **styles/globals.css**  
+  Global CSS and Tailwind configuration for consistent styling across the app.
 
-## 3. System Design Document
-
-Detailed design (architecture, data design, components, tech choices) is available here:  
-`<LINK_TO_DESIGN_DOCUMENT>`
-
-**Quick summary**
-- **Architecture:** React (UI) ↔ FastAPI (Backend) ↔ ML Inference Service. Postgres for persistence, Redis for cache/pubsub, S3/MinIO for assets.
-- **Data model (core):** `users`, `chats`, `messages`, `interaction_logs` (JSONB for flexible metadata).
-- **Components:** UI · Auth · API · Inference · Storage · DB · Cache.
-- **Tech choices (short):**
-  - **React + TypeScript** — rapid UI + type safety
-  - **FastAPI (Python)** — async, ML-friendly
-  - **PyTorch / Transformers** — standard for conversational models
-  - **Postgres + JSONB** — reliable + flexible fields
-  - **Redis** — low-latency cache / pubsub
-
----
-
-## 4. How the System Works
-
-- **Student asks a question** via the chat interface (web or mobile).
-- **AI agents reason, plan, and execute**:
-  - The reasoning agent interprets the query and identifies what information is needed.
-  - The planning agent selects trusted sources (IITI docs, FAQs, official announcements) and decides how to answer.
-  - The execution agent retrieves, filters, and synthesizes the best possible answer.
-- **Response delivered instantly** to the student, with chat history logged for future reference.
-- **Mobile-first design** ensures answers are accessible anywhere, anytime.
+- **public/**  
+  Stores static files such as icons and images used in the UI.
 
 ---
 
-## 5. Interaction Logs 🗂️
+## 3. Technologies Used
 
-- **Chat history exports:** [https://chatgpt.com/share/68ca6f00-e5c8-8004-a15f-2938e0b6f4ba](https://chatgpt.com/share/68ca6f00-e5c8-8004-a15f-2938e0b6f4ba)
+- **Next.js (App Router):** Modern React framework for server-side rendering and routing.
+- **TypeScript:** Type safety and improved developer experience.
+- **Tailwind CSS:** Utility-first CSS framework for rapid UI development.
+- **shadcn/ui:** Prebuilt, accessible UI components for React.
+- **React Hooks:** State management and side effects.
+- **Local Storage:** Persists user preferences and session data.
+- **Framer Motion:** Animations and transitions (if used).
 
 ---
 
-## 6. Demo ▶️
+## 4. Running Instructions
 
-- **Demo video:** `demos/iiti_gpt_demo.mp4` (or external link)  
-- **Screenshots:** `docs/screenshots/chat-ui-1.png`, `docs/screenshots/admin-1.png`
+### Prerequisites
+
+- Node.js (v18 or above recommended)
+- npm (comes with Node.js)
+
+### Setup & Development
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   The app will be available at `http://localhost:3000`.
+
+3. **Build for production:**
+   ```bash
+   npm run build
+   npm start
+   ```
+
+### Environment Variables
+
+If authentication or API endpoints require configuration, create a `.env.local` file in the root directory and add necessary variables (refer to backend documentation for details).
 
 ---
 
-## 7. Contact
+## 5. Usage
+
+- **Register/Login:** Create an account or log in using the authentication modal.
+- **Ask Questions:** Use the chat interface to ask questions about IITI.
+- **View History:** Access previous conversations from the sidebar.
+- **Switch Theme:** Toggle between dark and light modes for comfort.
+- **Mobile Friendly:** The interface is optimized for use on smartphones and tablets.
+
+---
+
+## 6. Contact
 
 - **Email:** mems230005028@iiti.ac.in
 
